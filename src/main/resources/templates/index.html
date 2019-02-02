@@ -17,23 +17,9 @@
 
         </div>
         <div class="col-sm">
-            <form method="post" action="" class="form-signin"><h1><br>WEATHER
-                <img th:src="@{/images/sun_clouds.png}" alt="" width="72" height="72"> APP</h1>
-                <h1 class="h3 mb-3 font-weight-normal">Rejestracja użytkownika:</h1>
-                <h4 th:if="${error!=null}" th:class="${'alert '+'alert-danger'}" th:text="${'Login jest już zajęty!'}"></h4>
-                <label class="sr-only">Login</label>
-                <input name="login" type="login" id="inputLogin" class="form-control" placeholder="Login" required>
-                <label for="inputEmail" class="sr-only">Email address</label>
-                <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                <div class="checkbox mb-3">
-                </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Zarejestruj</button>
 
-            </form>
             <div class="mt-3">
-                <a href="/login">Logowanie</a></div>
+                <a href="/register">Wyloguj się</a></div>
             <p class="mt-3 mb-3 text-muted">Akademia Kodu<br>Java Bootcamp Online 8</p>
 
         </div>

@@ -11,12 +11,17 @@ import java.util.Optional;
 public class UserService {
 
     final UserRepository userRepository;
+    final UserSession userSession;
 
     @Autowired
-
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, UserSession userSession) {
         this.userRepository = userRepository;
+        this.userSession = userSession;
     }
+
+
+
+
 
     public boolean addUser(String login, String password, String email) {
         UserEntity userEntity = new UserEntity();
@@ -33,7 +38,10 @@ public class UserService {
     public boolean tryLogin(String login, String password) {
         Optional<UserEntity> userEntity = userRepository.findByLoginAndPassword(login, password);
 
-
+        if(userEntity.isPresent()){
+            userSession.setUserLogin(true);
+            userSession.setLogin(login);
+        }
         return userEntity.isPresent();
     }
 }
