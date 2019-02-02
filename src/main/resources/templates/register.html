@@ -17,9 +17,9 @@
 
         </div>
         <div class="col-sm">
-            <form method="post" action="" class="form-signin"><h1><br>WEATHER
-                <img th:src="@{/images/sun_clouds.png}" alt="" width="72" height="72"> APP</h1>
-                <h1 class="h3 mb-3 font-weight-normal">Rejestracja użytkownika:</h1>
+            <form method="post" action="" class="form-signin"><h2><br>POGODA
+                <img th:src="@{/images/sun_clouds.png}" alt="" width="72" height="72"> ONLINE</h2>
+                <h3 class="h3 mb-3 font-weight-normal">Rejestracja użytkownika:</h3>
                 <h4 th:if="${error!=null}" th:class="${'alert '+'alert-danger'}" th:text="${'Login jest już zajęty!'}"></h4>
                 <label class="sr-only">Login</label>
                 <input name="login" type="login" id="inputLogin" class="form-control" placeholder="Login" required>
