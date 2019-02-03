@@ -20,9 +20,6 @@ public class UserService {
     }
 
 
-
-
-
     public boolean addUser(String login, String password, String email) {
         UserEntity userEntity = new UserEntity();
         userEntity.setLogin(login);
@@ -38,10 +35,15 @@ public class UserService {
     public boolean tryLogin(String login, String password) {
         Optional<UserEntity> userEntity = userRepository.findByLoginAndPassword(login, password);
 
-        if(userEntity.isPresent()){
+        if (userEntity.isPresent()) {
             userSession.setUserLogin(true);
             userSession.setLogin(login);
         }
         return userEntity.isPresent();
+    }
+
+    public void logout() {
+        userSession.setUserLogin(false);
+        userSession.setLogin(null);
     }
 }

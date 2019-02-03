@@ -9,7 +9,6 @@ public class WeatherDto {
     private CloudsDto clouds;
     private WindDto wind;
     private String name;
-
-
+    private int cod;
 
 }

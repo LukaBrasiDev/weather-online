@@ -26,15 +26,15 @@
         <div class="col">
             <h2><br>POGODA
                 <img th:src="@{/images/sun_clouds.png}" alt="" width="72" height="72"> ONLINE</h2>
-            <form th:action="@{/}" method="post" class="form-signin">
+            <form action="/" method="post" class="form-signin">
                 <input name="cityName" class="form-control" type="text" placeholder="Podaj miasto">
                 <div class="checkbox mb-3">
                 </div>
-                <button type="submit" class="btn btn-lg btn-primary btn-block" value="Wyślij">Wyślij</button>
+                <button type="submit" class="btn btn-lg btn-primary btn-block" value="Sprawdź">Sprawdź</button>
             </form>
             <br><br>
-            <h4>Aktualna pogoda:</h4>
-            <table th:if="${weather != null}" class="table table-hover">
+            <h4 th:if="${weather != null}">Aktualna pogoda:</h4>
+            <table  th:if="${weather != null}" class="table table-hover">
                 <thead>
                 <tr>
                     <th colspan="2" th:if="${weather != null}" th:text="${weather.getName()}"></th>
@@ -50,16 +50,20 @@
                 </tr>
                 <tr>
                     <td>Zachmurzenie</td>
-                    <td th:text="${weather.getClouds().getAll()}+' ' +'%'"></td>
+                    <td  th:if="${weather != null}"  th:text="${weather.getClouds().getAll()}+' ' +'%'"></td>
                 </tr>
                 <tr>
-                    <td>Wiatr</td>
-                    <td th:text="${weather.getWind().getSpeed()}+' ' +'m/s'"></td>
+                <td>Wiatr</td>
+                <td th:if="${weather != null}"  th:text="${weather.getWind().getSpeed()}+' ' +'m/s'"></td>
+            </tr>
+                <tr>
+                    <td>Cod</td>
+                    <td th:if="${weather != null}"  th:text="${weather.getCod()}"></td>
                 </tr>
             </table>
 
             <div class="mt-3">
-                <a href="/register">Wyloguj się</a></div>
+                <a href="/logout">Wyloguj się</a></div>
             <p class="mt-3 mb-3 text-muted">Akademia Kodu<br>Java Bootcamp Online 8</p>
 
         </div>
@@ -68,7 +72,6 @@
         </div>
     </div>
 </div>
-
 
 </body>
 </html>
